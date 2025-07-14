@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y gcc libmariadb-dev && rm -rf /var/lib/a
 
 # Copy project files into the container
 COPY /app .
+COPY /requirements.txt .
 
 # Install Python dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
