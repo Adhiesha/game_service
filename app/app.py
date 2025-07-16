@@ -12,6 +12,7 @@ app = Flask(__name__)
 # Enable CORS on all routes
 CORS(app)
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("MYSQL_DATABASE_URL")
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
