@@ -12,10 +12,7 @@ app = Flask(__name__)
 # Enable CORS on all routes
 CORS(app)
 
-# Use SQLite with absolute path
-basedir = os.path.abspath(os.path.dirname(__file__))
-db_path = os.path.join(basedir, 'gamedb.sqlite3')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("MYSQL_DATABASE_URL")
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
