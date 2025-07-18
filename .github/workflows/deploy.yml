@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  IMAGE_NAME: adeeshadev/order-service
+  IMAGE_NAME: adeeshadev/game-service
 
 jobs:
   build-and-push:
