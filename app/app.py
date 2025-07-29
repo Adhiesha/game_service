@@ -10,7 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # Enable CORS on all routes
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://lugx.minikube.local"}})
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("MYSQL_DATABASE_URL")
