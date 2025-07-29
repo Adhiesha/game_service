@@ -1,30 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-frontend
+  name: {{ .Release.Name }}-backend
   labels:
-    app: {{ .Release.Name }}-frontend
+    app: {{ .Release.Name }}-backend
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-frontend
+      app: {{ .Release.Name }}-backend
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-frontend
+        app: {{ .Release.Name }}-backend
     spec:
       containers:
-          - name: nginx
+          - name: game-service
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             ports:
-              - containerPort: 80
-            volumeMounts:
-              - name: env-js
-                mountPath: /usr/share/nginx/html/assets/js/env.js
-                subPath: env.js
-      volumes:
-        - name: env-js
-          configMap:
-            name: {{ .Release.Name }}-env
+              - containerPort: 5001
+            env:
+              - name: MYSQL_DATABASE_URL
+                value: "{{ .Values.env.MYSQL_DATABASE_URL }}"

@@ -1,28 +1,14 @@
 replicaCount: 1
 
 image:
-  repository: adeeshadev/lugx-gaming-ui
+  repository: adeeshadev/game-service
   tag: latest
   pullPolicy: Always
 
 service:
   type: ClusterIP
-  port: 80
-
-ingress:
-  enabled: true
-  className: nginx
-  annotations: {}
-  hosts:
-    - host: lugx.minikube.local
-      paths:
-        - path: /
-          pathType: Prefix
-  tls: []
+  port: 5001
 
 env:
-  TRACKING_ENDPOINT: "http://tracking-service.default.svc.cluster.local:5003/track"
-  CART_ENDPOINT: "http://order-service.default.svc.cluster.local:5004/orders"
-  GAMES_ENDPOINT: "http://game-service.default.svc.cluster.local:5001/games"
-  RECOMMENDATION_ENDPOINT: "http://recommendation-service.default.svc.cluster.local:5002/recommendations"
-
+#  MYSQL_DATABASE_URL: "sqlite:///gamedb.sqlite3"
+  MYSQL_DATABASE_URL: "mysql+pymysql://admin:siIxgzrMXEmtm47uoYxs@gamedb.cluster-cx6aii8yyy4v.ap-northeast-1.rds.amazonaws.com:3306/gamedb"
