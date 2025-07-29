@@ -9,6 +9,6 @@ service:
   type: ClusterIP
   port: 5001
 
-env:
-#  MYSQL_DATABASE_URL: "sqlite:///gamedb.sqlite3"
-  MYSQL_DATABASE_URL: "mysql+pymysql://admin:siIxgzrMXEmtm47uoYxs@gamedb.cluster-cx6aii8yyy4v.ap-northeast-1.rds.amazonaws.com:3306/gamedb"
+mysql:
+#    url: "sqlite:///gamedb.sqlite3"
+  url: "mysql+pymysql://admin:siIxgzrMXEmtm47uoYxs@gamedb.cluster-cx6aii8yyy4v.ap-northeast-1.rds.amazonaws.com:3306/gamedb"

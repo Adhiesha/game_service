@@ -22,4 +22,4 @@ spec:
               - containerPort: 5001
             env:
               - name: MYSQL_DATABASE_URL
-                value: "{{ .Values.env.MYSQL_DATABASE_URL }}"
+                value: "{{ .Values.mysql.url }}"
