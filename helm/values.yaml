@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: adeeshadev/game-service
-  tag: latest
+  tag: "develop-12"
   pullPolicy: Always
 
 service:
